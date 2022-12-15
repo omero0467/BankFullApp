@@ -1,7 +1,9 @@
 import {connect, set} from "mongoose";
+import dotnev from 'dotenv'
+dotnev.config()
 set("strictQuery", true);
 connect(
-   "mongodb+srv://Bash:8171aH5DXen7wGGN@cluster0.0nzxfm0.mongodb.net/OmrNfrBsr",
+   `mongodb+srv://${process.env.CLUSTER_NAME}:${process.env.CLUSTER_PASS}@cluster0.0nzxfm0.mongodb.net/OmrNfrBsr`,
    (error, mongoConnection) => {
       // console.log("connected to server...");
       if (error) {

@@ -1,11 +1,11 @@
 import {Router} from "express";
 import {
     addUser,
+    deletebyId,
     getAllUsers,
     getUser,
     // getBy,
     updateById,
-    // deletebyId,
     // deleteAllProducts,
  } from "../controllers/user_controllers.js";
 
@@ -15,6 +15,7 @@ usersRouter.post("/", addUser);
 usersRouter.get("/", getAllUsers)
 usersRouter.put("/", updateById)
 usersRouter.get('/user', getUser)
+usersRouter.delete('/user', deletebyId)
 
 // localhost:8000/api/users/user
 // {

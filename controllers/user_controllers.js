@@ -5,7 +5,7 @@ import {
    // getActiveProductsFromMongoose,
    // getByPriceRangeFromMongoose,
    updateUserFromMongoose,
-   // deleteProductFromMongoose,
+   deleteUserFromMongoose,
    // deleteAllProductsFromMongoose,
 } from "../services/bank.mongoose.js";
 
@@ -77,15 +77,15 @@ export const updateById = async (req, res) => {
    }
 };
 
-// export const deletebyId = async (req, res) => {
-//    const {id} = req.params;
-//    try {
-//       const Product = await deleteProductFromMongoose(id);
-//       res.status(200).send(Product);
-//    } catch (error) {
-//       res.status(404).send("error" + error);
-//    }
-// };
+export const deletebyId = async (req, res) => {
+   const {id} = req.params;
+   try {
+      const User = await deleteUserFromMongoose(id);
+      res.status(200).send(User);
+   } catch (error) {
+      res.status(500).send("error" + error);
+   }
+};
 
 // export const deleteAllProducts = async (req, res) => {
 //    const {id} = req.params;
