@@ -1,8 +1,13 @@
 import {User} from "../models/User.model.js";
+import { checkTheReqBody } from "./bank_accounts.mongoose.js";
+
 
 export const addUserToMongoose = async (body) => {
-   const user = await User.create(body);
-   return user;
+   if( checkTheReqBody(['name','lastName'],body)){
+      const user = await User.create(body);
+      return user;
+   }
+   return 'Please Fill the following: lastName, name' 
 };
 
 export const getAllUsersFromMongoose = async () => {
@@ -26,17 +31,15 @@ export const getAUserFromMongoose = async (body) => {
 export const updateUserFromMongoose = async (body) => {
    const updateFields = ['name','lastName','_id']
    const reqFields = Object.keys(body)
-   console.log(reqFields.every( (key) =>  updateFields.includes( key )  ))
-   if( reqFields.every( (key) =>  updateFields.includes( key )  ) ) {
+   if( updateFields.every( (key) =>  reqFields.includes( key )  ) ) {
       const updatedUser = await User.updateOne(
          {_id: body._id},
          {$set: {...body}}
          );
          return updatedUser;
       }
-      return 'Please Fill the following: lastName, name'
+      return 'Please Fill the following: lastName, name and _id'
 };
-
 
 export const deleteUserFromMongoose = async (id) => {
    const user = await User.findOneAndDelete({_id: id});

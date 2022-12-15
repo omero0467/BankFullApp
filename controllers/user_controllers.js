@@ -7,7 +7,7 @@ import {
    updateUserFromMongoose,
    deleteUserFromMongoose,
    // deleteAllProductsFromMongoose,
-} from "../services/bank.mongoose.js";
+} from "../services/bank.user.mongoose.js";
 
 export const addUser = async (req, res) => {
    try {

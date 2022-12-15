@@ -8,9 +8,7 @@ const userSchema = new Schema({
    lastName: {
       type:String
    },
-   accounts: {
-      type: Array
-   }
+   accounts: []
 })
 
 export {userSchema}
