@@ -5,23 +5,37 @@ export const addUserToMongoose = async (body) => {
    return user;
 };
 
-// export const getAllUsersFromMongoose = async () => {
-//    const allProducts = await Product.find({});
-//    if (allProducts.length == 0) {
-//       return "No Products Found";
-//    } else {
-//       return allProducts;
-//    }
-// };
+export const getAllUsersFromMongoose = async () => {
+   const allUsers = await User.find({});
+   if (allUsers.length == 0) {
+      return "No Products Found";
+   } else {
+      return allUsers;
+   }
+};
 
-// export const getAUserFromMongoose = async (body) => {
-//    const allUsers = await Product.findOne(body);
-//    if (allUsers) {
-//       return allUsers;
-//    } else {
-//       return "No Product Find With This Id";
-//    }
-// };
+export const getAUserFromMongoose = async (body) => {
+   const allUsers = await User.findOne({"_id":body._id});
+   if (allUsers) {
+      return allUsers;
+   } else {
+      return "No Product Find With This Id";
+   }
+};
+
+export const updateUserFromMongoose = async (body) => {
+   const updateFields = ['name','lastName','_id']
+   const reqFields = Object.keys(body)
+   console.log(reqFields.every( (key) =>  updateFields.includes( key )  ))
+   if( reqFields.every( (key) =>  updateFields.includes( key )  ) ) {
+      const updatedUser = await User.updateOne(
+         {_id: body._id},
+         {$set: {...body}}
+         );
+         return updatedUser;
+      }
+      return 'Please Fill the following: lastName, name'
+};
 
 // export const getActiveUsersFromMongoose = async () => {
 //    const activeUsers = await Product.find({isActive: true});
@@ -35,13 +49,7 @@ export const addUserToMongoose = async (body) => {
 //    return allProducts;
 // };
 
-// export const updateUserFromMongoose = async (id, active) => {
-//    const user = await Product.updateOne(
-//       {_id: id},
-//       {$set: {isActive: active}}
-//    );
-//    return user;
-// };
+
 
 // export const deleteUserFromMongoose = async (id) => {
 //    const user = await User.deleteOne({_id: id});

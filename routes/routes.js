@@ -1,18 +1,14 @@
 import {Router} from "express";
-import {
-   addUser,
-   // getAllProducts,
-   // getBy,
-   // updateById,
-   // deletebyId,
-   // deleteAllProducts,
-} from "../controllers/bank.controller.js";
+import { usersRouter } from "./usersRouter.js";
+import { accountsRouter } from "./accountsRouter.js";
+
 
 export const indexBank = Router();
 
-indexBank.post("/product", addUser);
+indexBank.use('/users',usersRouter)
+indexBank.use('/accounts',accountsRouter)
+
 // indexBank.get("/allproducts", getAllProducts);
 // indexBank.get("/product", getBy);
-// indexBank.put("/product/:id", updateById);
 // indexBank.delete("/product/:id", deletebyId);
 // indexBank.delete("/product", deleteAllProducts);
