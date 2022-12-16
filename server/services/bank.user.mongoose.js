@@ -20,15 +20,6 @@ export const getAllUsersFromMongoose = async () => {
    }
 };
 
-export const getAUserFromMongoose = async (body) => {
-   const allUsers = await User.findOne({"_id":body._id});
-   if (allUsers) {
-      return allUsers;
-   } else {
-      return "No Product Find With This Id";
-   }
-};
-
 export const updateUserFromMongoose = async (body) => {
    const updateFields = ['name','lastName','_id']
    const reqFields = Object.keys(body)

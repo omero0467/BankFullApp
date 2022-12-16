@@ -62,7 +62,7 @@ export const transfer = async (req,res)=>{
         const {from, to, amount} = req.body
         const sender = await Account.findOne( { _id : from } )
         if(sender.credit + sender.cash >= amount){
-            const update = await Account.updateOne({ _id : from } , { $inc : { cash : -amount } })
+             await Account.updateOne({ _id : from } , { $inc : { cash : -amount } })
             const reciver = await Account.findOneAndUpdate( { _id : to } , { $inc : { cash : amount} } )
             return res.status(202).send('transferd Successfuly')
         }else if (sender.credit + sender.cash < amount){
@@ -87,4 +87,3 @@ export const deleteAccount = async (req,res) => {
     }
 }
 
-// { $match : { accounts : body._id } } { $pull : { accounts : body._id } },   { $pull : { accounts : { $in: [ body._id  ] } } }

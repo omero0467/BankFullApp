@@ -2,7 +2,6 @@ import { User } from "../models/user.model.js";
 import {
    addUserToMongoose,
    getAllUsersFromMongoose,
-   getAUserFromMongoose,
    updateUserFromMongoose,
    deleteUserFromMongoose,
 } from "../services/bank.user.mongoose.js";
@@ -33,10 +32,14 @@ export const getAllUsers = async (req, res) => {
 
 export const getUser = async (req, res) => {
    try {
-      const Product = await getAUserFromMongoose(req.body);
-      res.status(200).send(Product);
+      const user = await User.findOne({_id:req.body._id});
+      console.log(user);
+      if(!user){
+        return res.status(404).send("Error: User Not Found")
+      }
+       return res.status(200).send(user);
    } catch (error) {
-      res.status(404).send("error" + error);
+      res.status(404).send("error:" + error.message);
    }
 };
 
