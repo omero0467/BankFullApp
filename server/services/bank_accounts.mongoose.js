@@ -17,7 +17,7 @@ export const addAccountToMongoose =async (body) =>{
 
 export  const  getAccount = async (req,res)=>{
     try {
-        const account = await Account.findOne({ _id : req.body._id })
+        const account = await Account.findOne({ _id : req.params.id })
         if (!account) {
             return res.status(400).send("Account not found!, please make sure field is correct!")
         }
