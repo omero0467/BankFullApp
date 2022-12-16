@@ -1,5 +1,5 @@
 import {User} from "../models/User.model.js";
-import { checkTheReqBody } from "./bank_accounts.mongoose.js";
+import { checkTheReqBody } from "../middleware/middleware.js"; 
 
 
 export const addUserToMongoose = async (body) => {
