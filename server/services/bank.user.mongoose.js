@@ -3,11 +3,12 @@ import { checkTheReqBody } from "../middleware/middleware.js";
 
 
 export const addUserToMongoose = async (body) => {
-   if( checkTheReqBody(['name','lastName'],body)){
+   try{
       const user = await User.create(body);
       return user;
+   } catch(err){
+      throw err
    }
-   return 'Please Fill the following: lastName, name' 
 };
 
 export const getAllUsersFromMongoose = async () => {

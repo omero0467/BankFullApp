@@ -3,10 +3,12 @@ import {Schema} from "mongoose";
 
 const userSchema = new Schema({
    name: {
-      type:String
+      type:String,
+      trim:true
    },
    lastName: {
-      type:String
+      type:String,
+      trim:true
    },
    accounts: []
 })

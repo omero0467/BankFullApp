@@ -1,3 +1,4 @@
+import { User } from "../models/user.model.js";
 import {
    addUserToMongoose,
    getAllUsersFromMongoose,
@@ -6,16 +7,17 @@ import {
    deleteUserFromMongoose,
 } from "../services/bank.user.mongoose.js";
 
-export const addUser = async (req, res) => {
+
+
+export const addUser= async (req,res)=>{
    try {
-      const newUser = await addUserToMongoose(req.body);
-      res.status(201).send(newUser);
+      const {name,age,lastName} = req.body
+      const newUser = await User.create({name,lastName,age})
+      return res.status(201).send(newUser)
    } catch (error) {
-      if (error.name === "MongoServerError" && error.code === 11000) {
-         res.status(409).send("There was a duplicate key error");
-      }
+      return res.status(500).send(error.message)
    }
-};
+}
 
 export const getAllUsers = async (req, res) => {
    try {

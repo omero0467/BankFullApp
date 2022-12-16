@@ -6,10 +6,10 @@ import {
     getUser,
     updateById,
  } from "../controllers/user_controllers.js";
-
+import { checkTheReqBody } from "../middleware/middleware.js";
 export const usersRouter = Router()
 
-usersRouter.post("/", addUser);
+usersRouter.post("/",(req,res,next) => {checkTheReqBody(['name','lastName'],req.body,res,next)}, addUser);
 usersRouter.get("/", getAllUsers)
 usersRouter.put("/", updateById)
 usersRouter.get('/user', getUser)
