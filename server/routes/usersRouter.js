@@ -13,6 +13,6 @@ usersRouter.post("/",(req,res,next) => {checkTheReqBody(['name','lastName','age'
 usersRouter.get("/", getAllUsers)
 usersRouter.put("/", updateById)
 usersRouter.get('/:id', getUser)
-usersRouter.delete('/user', deletebyId)
+usersRouter.delete('/:id', deletebyId)
 
 
