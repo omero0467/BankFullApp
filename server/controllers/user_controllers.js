@@ -2,11 +2,8 @@ import {
    addUserToMongoose,
    getAllUsersFromMongoose,
    getAUserFromMongoose,
-   // getActiveProductsFromMongoose,
-   // getByPriceRangeFromMongoose,
    updateUserFromMongoose,
    deleteUserFromMongoose,
-   // deleteAllProductsFromMongoose,
 } from "../services/bank.user.mongoose.js";
 
 export const addUser = async (req, res) => {

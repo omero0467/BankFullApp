@@ -1,5 +1,4 @@
 import {Schema} from "mongoose";
-import validator from "validator";
 
 
 const accountSchema = new Schema ({

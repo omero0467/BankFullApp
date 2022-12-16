@@ -1,5 +1,5 @@
 import {Schema} from "mongoose";
-import validator from "validator";
+
 
 const userSchema = new Schema({
    name: {

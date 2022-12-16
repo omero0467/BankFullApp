@@ -1,12 +1,12 @@
 {
-  "name": "19.1_update_and_delete",
+  "name":"fullbankapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
     "deploy-server": "npm i",
-    "server": "nodemon index.js",
+    "server": "node index.js",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [],
