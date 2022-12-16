@@ -14,7 +14,7 @@ export const addUserToMongoose = async (body) => {
 export const getAllUsersFromMongoose = async () => {
    const allUsers = await User.find({});
    if (allUsers.length == 0) {
-      return "No Products Found";
+      return "No Users Found";
    } else {
       return allUsers;
    }

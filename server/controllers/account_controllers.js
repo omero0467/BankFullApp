@@ -11,7 +11,10 @@ export const addAccount = async (req , res) => {
 
 export const getAllAccounts = async (req,res) =>{
         try {
-        const accounts = await Account.find({}); 
+        const accounts = await Account.find({});
+        if (accounts.length === 0) {
+                return res.status(404).send("No Accounts Found");;
+        } 
         return res.status(200).send(accounts);
         } catch (error) {
         res.status(500).send(error);

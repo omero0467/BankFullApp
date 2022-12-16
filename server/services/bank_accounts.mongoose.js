@@ -1,6 +1,6 @@
 import { Account } from "../models/account.model.js";
 import { User } from "../models/user.model.js";
-
+import mongoose from "mongoose";
 
 export const addAccountToMongoose =async (body) =>{
     try {
@@ -73,11 +73,18 @@ export const transfer = async (req,res)=>{
     }
 }
 
+export const deleteAccount = async (req,res) => {
+    try {
+        const {_id}=req.body
+        const deletedAccount = await Account.deleteOne( { _id :  _id } )
+        if(deletedAccount.deletedCount===0){
+            return res.status(400).send('Account Allready Have Been Deleted')
+        }
+        const deleteReferance = await User.updateMany({},{ $pull : { accounts :   mongoose.Types.ObjectId(_id) } })
+        res.status(200).send(deleteReferance)
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+}
 
-// {
-//     From: id
-//     To: id
-// }
-// boker tov
-// need to hanlde addAccount Error√
-
+// { $match : { accounts : body._id } } { $pull : { accounts : body._id } },   { $pull : { accounts : { $in: [ body._id  ] } } }

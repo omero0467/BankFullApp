@@ -22,6 +22,9 @@ export const addUser= async (req,res)=>{
 export const getAllUsers = async (req, res) => {
    try {
       const allUsers = await getAllUsersFromMongoose();
+      if(allUsers==="No Users Found"){
+        return res.status(404).send("No Users Found");
+      }
       res.status(200).send(allUsers);
    } catch (error) {
       res.status(404).send("error" + error);

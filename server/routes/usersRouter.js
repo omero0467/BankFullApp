@@ -9,7 +9,7 @@ import {
 import { checkTheReqBody } from "../middleware/middleware.js";
 export const usersRouter = Router()
 
-usersRouter.post("/",(req,res,next) => {checkTheReqBody(['name','lastName'],req.body,res,next)}, addUser);
+usersRouter.post("/",(req,res,next) => {checkTheReqBody(['name','lastName','age'],req.body,res,next)}, addUser);
 usersRouter.get("/", getAllUsers)
 usersRouter.put("/", updateById)
 usersRouter.get('/user', getUser)
