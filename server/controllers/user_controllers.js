@@ -32,7 +32,7 @@ export const getAllUsers = async (req, res) => {
 
 export const getUser = async (req, res) => {
    try {
-      const user = await User.findOne({_id:req.body._id});
+      const user = await User.findOne({_id:req.params.id});
       console.log(user);
       if(!user){
         return res.status(404).send("Error: User Not Found")
