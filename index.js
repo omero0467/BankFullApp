@@ -1,7 +1,8 @@
 import express, {json} from "express";
 import cors from "cors"
-import './db/mongoose.js'
-import { indexBank } from "./routes/routes.js";
+import './server/db/mongoose.js'
+import { indexBank } from "./server/routes/routes.js";
+
 
 const app = express();
 const PORT = process.env.PORT || 8000;
