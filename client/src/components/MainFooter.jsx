@@ -7,7 +7,7 @@ function MainFooter() {
         <Footer container={true} >
           <Footer.Copyright
         href="#"
-        by="Bashir&Omer"
+        by="Omer & Bashir"
         year={2022}
           />
           <Footer.LinkGroup>
