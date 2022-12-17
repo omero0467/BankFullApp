@@ -7,7 +7,11 @@
   "scripts": {
     "deploy-server": "npm i",
     "server": "node index.js",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "client": "npm start --prefix client",
+    "copy": "cp -r client/build server/",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "postbuild": "npm i --prefix client && npm run build --prefix client && npm run copy"
+
   },
   "keywords": [],
   "author": "",
