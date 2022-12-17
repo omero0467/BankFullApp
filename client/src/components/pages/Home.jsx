@@ -5,6 +5,7 @@ import ListItemComp from '../ListItemComp'
 
 const Home = () => {
   const [users, setUsers] = useState([])
+
   useEffect(()=>{
     const getUsers = async () =>{
       const {data} = await axios.get("https://bashobankapp.onrender.com/api/users")
@@ -21,7 +22,7 @@ const Home = () => {
   },[])
   return (
    <>
-   <div className="">
+   <div className="mt-2 mx-4">
   <Card>
     <div className="mb-4 flex items-center justify-between">
       <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">

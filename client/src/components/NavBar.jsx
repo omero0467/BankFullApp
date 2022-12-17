@@ -7,7 +7,7 @@ function NavBar() {
     <>
     <Navbar
   fluid={true}
-  rounded={true}
+  rounded={false}
 >
   <Navbar.Brand href="/">
     <img
@@ -27,10 +27,10 @@ function NavBar() {
     >
       <Dropdown.Header>
         <span className="block text-sm">
-          Bonnie Green
+          Bashir Tarif
         </span>
         <span className="block truncate text-sm font-medium">
-          name@flowbite.com
+          Bashir@test.com
         </span>
       </Dropdown.Header>
       <Dropdown.Item>
