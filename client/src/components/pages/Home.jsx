@@ -12,7 +12,6 @@ const Home = () => {
       setUsers(data)
     }
     getUsers()
-    console.log(users);
   
     return () => {
       // Cleanup
@@ -28,12 +27,6 @@ const Home = () => {
       <h5 className="text-xl font-bold leading-none text-gray-900 dark:text-white">
         Latest Users
       </h5>
-      <a
-        href="/"
-        className="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500"
-      >
-        View all
-      </a>
     </div>
     <div className="flow-root">
       <ul className="divide-y divide-gray-200 dark:divide-gray-700">
