@@ -4,6 +4,7 @@ import Home from './components/pages/Home'
 import User from './components/pages/User'
 import ErrorPage from './components/pages/ErrorPage'
 import NavBar from './components/NavBar';
+import MainFooter from './components/MainFooter';
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Route path='/user/:id' element={<User/>}/>
         <Route path='*' element={<ErrorPage/>}/>
     </Routes>
+    <MainFooter/>
     </>
   );
 }

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { Spinner } from 'flowbite-react'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-function ListItemComp({user}) {
+function ListItemComp({user,source}) {
     const [isLoading, setisLoading] = useState(false)
     const [balance, setBalance] = useState('')
     useEffect(()=>{
@@ -24,7 +24,7 @@ function ListItemComp({user}) {
             <div className="shrink-0">
               <img
                 className="h-8 w-8 rounded-full"
-                src="https://flowbite.com/docs/images/people/profile-picture-1.jpg"
+                src={source}
                 alt={user.name}
               />
             </div>
