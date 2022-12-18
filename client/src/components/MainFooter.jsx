@@ -3,7 +3,7 @@ import React from 'react'
 
 function MainFooter() {
   return (
-    <div className='fixed mt-4 bottom-0 -z-10 w-full bg-white'>
+    <div className='relative mt-4 bottom-0 -z-10 w-full bg-white'>
         <Footer container={true} >
           <Footer.Copyright
         href="#"
