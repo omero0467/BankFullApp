@@ -36,7 +36,7 @@ const Home = () => {
                   </h5>
                </div>
                <div className="flow-root">
-                  <ul className="divide-y min-h-screen divide-gray-200 dark:divide-gray-700">
+                  <ul className="divide-y divide-gray-200 dark:divide-gray-700">
                      {users.map((user, index) => (
                         <ListItemComp
                            source={images[index]}
